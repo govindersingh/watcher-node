@@ -8,4 +8,6 @@ export const config = {
   telegram_channel_id: process.env.TELEGRAM_CHANNEL_ID,
   session: process.env.SESSION || "",
   port: process.env.PORT || 3000,
+  ADMIN_USER: process.env.ADMIN_USER || "admin",
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD
 };

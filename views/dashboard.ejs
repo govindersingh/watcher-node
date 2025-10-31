@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="10">
+  <title>📊 Telegram Watcher Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f5f7fa; }
+    h1 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background: #eee; }
+    tr:nth-child(even) { background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h1>📊 Telegram Watcher Dashboard</h1>
+  <p>Total Messages: <%= messages.length %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Action</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% messages.forEach(msg => { %>
+        <tr>
+          <td><%= msg.symbol %></td>
+          <td><%= msg.action %></td>
+          <td><%= msg.timestamp %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

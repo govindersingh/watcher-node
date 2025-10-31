@@ -1,6 +1,6 @@
 import { client } from "./client.js";
 import { NewMessage } from "telegram/events/index.js";
-import { Message } from "../db/models/Message.js";
+import Message from "../db/models/Message.js";
 import { parseMessage } from "../utils/parser.js";
 
 export const startTelegramListener = async () => {
