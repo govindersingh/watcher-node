@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "session": "node src/telegram/generateSession.js"
+    "session": "node src/telegram/generateSession.js",
+    "channels": "node src/telegram/getChannels.js"
   },
   "keywords": [],
   "author": "",
