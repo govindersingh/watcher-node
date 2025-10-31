@@ -1,0 +1,25 @@
+{
+  "name": "govindersingh",
+  "version": "1.0.0",
+  "description": "Telegram channel listener that saves parsed trade alerts to MongoDB and exposes an API.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "session": "node src/telegram/generateSession.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "input": "^1.0.1",
+    "mongoose": "^8.19.2",
+    "telegram": "^2.26.22"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
