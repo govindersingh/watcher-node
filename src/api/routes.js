@@ -1,18 +1,17 @@
 import express from "express";
 const router = express.Router();
+import { getHoldings } from "../groww/service.js";
 
 // Example: health check
 router.get("/health", (req, res) => {
   res.json({ status: "ok", time: new Date() });
 });
 
-// Example: latest messages (if you store Telegram data)
-router.get("/messages", async (req, res) => {
+// get all orders
+router.get("/orders", async (req, res) => {
   try {
-    // Replace this with actual Mongo query
-    // e.g., const messages = await Message.find().sort({ _id: -1 }).limit(20);
-    const messages = [{ symbol: "TATASTEEL", action: "BUY", timestamp: new Date() }];
-    res.json(messages);
+    const orders = await getHoldings();
+    res.json(orders);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch messages" });
   }
