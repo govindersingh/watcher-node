@@ -15,6 +15,12 @@ export const startTelegramListener = async () => {
 
     try {
       if(parsed) {
+        console.log(`🚀 Initiating profit booking for ${parsed.symbol}...`);
+
+        // Execute order using broker API.
+        // logic...
+
+        // Store the message in the database
         await Message.create({ ...parsed, raw: text });
       }
     } catch (err) {

@@ -35,12 +35,7 @@ export function parseMessage(text) {
 
   if (match) {
     const symbol = match[1].toUpperCase();
-    const action = "SELL"; // consistent with your logic
-
-    console.log(`📩 Stored ${symbol} (${action}) at ${ts}`);
-    // Start booking profit process
-    // Checking the order if exists in the active orders list on broker API, then place the sell order
-    console.log(`🚀 Initiating profit booking for ${symbol}...`);
+    const action = "SELL";
 
     return { symbol, action, timestamp: ts };
   }
