@@ -1,14 +1,20 @@
 import express from "express";
-import { Message } from "../db/models/Message.js";
-
 const router = express.Router();
 
-router.get("/api/messages", async (req, res) => {
+// Example: health check
+router.get("/health", (req, res) => {
+  res.json({ status: "ok", time: new Date() });
+});
+
+// Example: latest messages (if you store Telegram data)
+router.get("/messages", async (req, res) => {
   try {
-    const messages = await Message.find().sort({ _id: -1 }).limit(50);
+    // Replace this with actual Mongo query
+    // e.g., const messages = await Message.find().sort({ _id: -1 }).limit(20);
+    const messages = [{ symbol: "TATASTEEL", action: "BUY", timestamp: new Date() }];
     res.json(messages);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Failed to fetch messages" });
   }
 });
 
