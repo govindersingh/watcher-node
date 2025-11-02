@@ -10,7 +10,6 @@ export const config = {
   port: process.env.PORT || 3000,
   ADMIN_USER: process.env.ADMIN_USER || "admin",
   ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
-  GROWW_API_KEY: process.env.GROWW_API_KEY,
-  GROWW_API_SECRET: process.env.GROWW_API_SECRET,
   GROWW_BASE_URL: process.env.GROWW_BASE_URL,
+  GROWW_ACCESS_TOKEN: process.env.GROWW_ACCESS_TOKEN,
 };

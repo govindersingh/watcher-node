@@ -1,6 +1,6 @@
 import { client } from "./client.js";
 import { NewMessage } from "telegram/events/index.js";
-import Message from "../db/models/Message.js";
+// import Message from "../db/models/Message.js";
 import { parseMessage } from "../utils/parser.js";
 
 export const startTelegramListener = async () => {
@@ -12,19 +12,15 @@ export const startTelegramListener = async () => {
     if (!text) return;
 
     const parsed = parseMessage(text);
+    if (!parsed) return;
+
+     console.log(`🚀 Parsed Signal: ${parsed.symbol} | ${parsed.action}`);
 
     try {
-      if(parsed) {
-        console.log(`🚀 Initiating profit booking for ${parsed.symbol}...`);
-
-        // Execute order using broker API.
-        // logic...
-
-        // Store the message in the database
-        await Message.create({ ...parsed, raw: text });
-      }
+      await handleTrade(parsed.symbol, parsed.action);
+      // await Message.create({ ...parsed, raw: text });
     } catch (err) {
-      console.error("❌ DB insert failed:", err.message);
+      console.error(`❌ Trade failed for ${parsed.symbol}:`, err.message);
     }
   }, new NewMessage({}));
 };
