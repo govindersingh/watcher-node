@@ -11,7 +11,6 @@ export function parseMessage(text) {
   if (!text || typeof text !== "string") return null;
 
   const trimmed = text.trim();
-  const ts = dayjs().format("YYYY-MM-DD HH:mm:ss");
 
   // --- Primary pattern for messages like "Book Profit in: BAJAJ-AUTO25NOVFUT"
   const pattern = /Book\s*(?:Partial\s*)?Profit\s*in[:：]?\s*([A-Z0-9\-_]+)/i;
@@ -35,9 +34,7 @@ export function parseMessage(text) {
 
   if (match) {
     const symbol = match[1].toUpperCase();
-    const action = "SELL";
-
-    return { symbol, action, timestamp: ts };
+    return { symbol };
   }
 
   console.log(`⚠️ No stock found in: ${text.slice(0, 60)}`);
