@@ -24,6 +24,7 @@
     "express-basic-auth": "^1.2.1",
     "input": "^1.0.1",
     "mongoose": "^8.19.2",
+    "playwright": "^1.56.1",
     "telegram": "^2.26.22"
   },
   "devDependencies": {
